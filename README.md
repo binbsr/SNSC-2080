@@ -38,8 +38,10 @@ https://duckduckgo.com/?q=kathmandu&t=h_&ia=web
 
 
 
-
-
-
+# HRM (Human Resource Management) Tool
+## Employees Details (Name, Address, Gender, Email, Phone, Dob, JoinDate)
+## Departments (Name, Details, EstablishedDate)
+## Employee Benefits (Salary, Bonus, SSF, Other Incentives)
+## Employee Designations (Title, Details)
 
 

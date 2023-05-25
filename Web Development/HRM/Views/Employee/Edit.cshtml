@@ -1,0 +1,44 @@
+﻿@model Employee
+
+<form class="row g-3" action="/employee/Edit" method="post">
+    <div class="col-md-6">   
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Address" class="form-label"></label>
+        <input asp-for="Address" class="form-control">
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Phone" class="form-label"></label>
+        <input asp-for="Phone" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control">
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for=Gender class="form-label"></label>
+        <select class="form-select" asp-for="Gender">
+            <option>Male</option>
+            <option>Female</option>
+            <option>Others</option>
+        </select>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for=Dob class="form-label"></label>
+        <input asp-for="Dob" class="form-control">
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for=JoinDate class="form-label"></label>
+        <input asp-for=JoinDate class="form-control">
+    </div>
+    
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary w-25 float-end">Save</button>
+    </div>
+</form>

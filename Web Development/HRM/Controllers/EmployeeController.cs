@@ -2,12 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 
 public class EmployeeController : Controller
 {
-    public IActionResult Index()
-    {
-        List<Employee> employees = new List<Employee>
+    static List<Employee> employees = new List<Employee>
         {
             new Employee
             {
+                Id= 1,
                 Name = "Bishnu Rawal",
                 Address = "Ktm",
                 Email = "a@a.com",
@@ -18,6 +17,7 @@ public class EmployeeController : Controller
             },
             new Employee
             {
+                Id= 2,
                 Name = "Bishnu Rawal",
                 Address = "Ktm",
                 Email = "a@a.com",
@@ -28,6 +28,7 @@ public class EmployeeController : Controller
             },
             new Employee
             {
+                Id= 3,
                 Name = "Bishnu Rawal",
                 Address = "Ktm",
                 Email = "a@a.com",
@@ -38,6 +39,42 @@ public class EmployeeController : Controller
             }
         };
 
+    [HttpGet]
+    public IActionResult Index()
+    {
         return View(employees);
     }
+
+    [HttpGet]
+    public IActionResult Add()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Add(Employee employee)
+    {
+        // Save employee to db
+        employees.Add(employee);
+
+        return RedirectToAction("Index");
+    }
+
+
+    [HttpGet]
+    public IActionResult Edit(int id)
+    {
+        var employee = employees.Find(x => x.Id == id);
+        return View(employee);
+    }
+
+    [HttpPost]
+    public IActionResult Edit(Employee employee)
+    {
+        // Save employee to db
+        employees.Add(employee);
+
+        return RedirectToAction("Index");
+    }
+
 }

@@ -1,47 +1,16 @@
+using HRM.Data;
 using Microsoft.AspNetCore.Mvc;
 
 public class EmployeeController : Controller
 {
-    static List<Employee> employees = new List<Employee>
-        {
-            new Employee
-            {
-                Id= 1,
-                Name = "Bishnu Rawal",
-                Address = "Ktm",
-                Email = "a@a.com",
-                Phone = "379573983789",
-                Gender = Gender.Male,
-                Dob = DateTime.Now,
-                JoinDate = DateTime.Now
-            },
-            new Employee
-            {
-                Id= 2,
-                Name = "Bishnu Rawal",
-                Address = "Ktm",
-                Email = "a@a.com",
-                Phone = "379573983789",
-                Gender = Gender.Male,
-                Dob = DateTime.Now,
-                JoinDate = DateTime.Now
-            },
-            new Employee
-            {
-                Id= 3,
-                Name = "Bishnu Rawal",
-                Address = "Ktm",
-                Email = "a@a.com",
-                Phone = "379573983789",
-                Gender = Gender.Male,
-                Dob = DateTime.Now,
-                JoinDate = DateTime.Now
-            }
-        };
+    HRMContext db = new();
 
     [HttpGet]
     public IActionResult Index()
     {
+        // Fetch all employees from db        
+        var employees = db.Employees.ToList();
+
         return View(employees);
     }
 
@@ -55,7 +24,8 @@ public class EmployeeController : Controller
     public IActionResult Add(Employee employee)
     {
         // Save employee to db
-        employees.Add(employee);
+        db.Employees.Add(employee);
+        db.SaveChanges();
 
         return RedirectToAction("Index");
     }
@@ -64,7 +34,7 @@ public class EmployeeController : Controller
     [HttpGet]
     public IActionResult Edit(int id)
     {
-        var employee = employees.Find(x => x.Id == id);
+        var employee = db.Employees.Find(id);
         return View(employee);
     }
 
@@ -72,7 +42,25 @@ public class EmployeeController : Controller
     public IActionResult Edit(Employee employee)
     {
         // Save employee to db
-        employees.Add(employee);
+        db.Employees.Update(employee);
+        db.SaveChanges();
+
+        return RedirectToAction("Index");
+    }
+
+    [HttpGet]
+    public IActionResult Delete(int id)
+    {
+        var employee = db.Employees.Find(id);
+        return View(employee);
+    }
+
+    [HttpPost]
+    public IActionResult Delete(Employee employee)
+    {
+        // Save employee to db
+        db.Employees.Remove(employee);
+        db.SaveChanges();
 
         return RedirectToAction("Index");
     }

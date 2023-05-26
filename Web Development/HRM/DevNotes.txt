@@ -1,0 +1,15 @@
+﻿Database Programming
+=================================
+Dbs:
+Relational - Oracle, SqLite, SQL Server, MySql, Postgres etc.
+No SQL - MongoDb, DynamoDb etc.
+
+Data Access:
+1. ADO.NET Library
+2. ORM (Object Relational Mapper) - EF Core, NHibernate, RepoDb, Dapper etc.
+
+
+
+> dotnet tool install dotnet-ef -g
+> dotnet ef migrations add CreateDb
+> dotnet ef database update

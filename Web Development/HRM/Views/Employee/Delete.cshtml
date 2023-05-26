@@ -1,0 +1,13 @@
+﻿@model Employee
+
+<h2 class="text-danger">Are you sure to delete data for @Model.Name?</h2>
+
+<form class="row g-3" action="/employee/delete" method="post">
+    
+    <input asp-for="Id" type="hidden" />   
+    
+    <div class="col-12">
+        <a href="/employee/index" class="btn btn-success w-25">Cancel</a>
+        <button type="submit" class="btn btn-danger w-25">Delete</button>
+    </div>
+</form>

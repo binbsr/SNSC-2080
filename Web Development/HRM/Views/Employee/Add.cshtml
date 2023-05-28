@@ -1,5 +1,5 @@
 ﻿@model Employee
-<h2>Add details for new employee</h2>
+<h2 class="text-center">Add details for new employee</h2>
 
 @*
 HTML Helpers
@@ -27,10 +27,13 @@ Tag Helpers
 
     <div class="col-md-6">
         <label asp-for=Gender class="form-label"></label>
-        <select class="form-select" asp-for="Gender">
-            <option>Male</option>
-            <option>Female</option>
-            <option>Others</option>
+        <select class="form-select" asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()">           
+        </select>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for=DesignationId class="form-label"></label>
+        <select class="form-select" asp-for="DesignationId" asp-items="@ViewData["DesignationList"] as IEnumerable<SelectListItem>">
         </select>
     </div>
 

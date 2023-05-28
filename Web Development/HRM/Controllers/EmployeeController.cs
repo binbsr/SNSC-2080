@@ -1,5 +1,7 @@
 using HRM.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 public class EmployeeController : Controller
 {
@@ -9,7 +11,7 @@ public class EmployeeController : Controller
     public IActionResult Index()
     {
         // Fetch all employees from db        
-        var employees = db.Employees.ToList();
+        var employees = db.Employees.Include(x => x.Designation).ToList();
 
         return View(employees);
     }
@@ -17,6 +19,10 @@ public class EmployeeController : Controller
     [HttpGet]
     public IActionResult Add()
     {
+        var designations = db.Designations.ToList();
+        var designationList = designations.Select(x => new SelectListItem { Text = x.Title, Value = x.Id.ToString() });
+        ViewData["DesignationList"] = designationList;
+
         return View();
     }
 

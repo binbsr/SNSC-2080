@@ -1,43 +1,45 @@
 @model List<Employee>
 
 @{
-    int i = 1;    
+    int i = 1;
 }
 
 <h1>All Employees</h1>
 
 <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Address</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Email</th>
-      <th scope="col">Gender</th>
-      <th scope="col">Dob</th>
-      <th scope="col">JoinDate</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach (var employee in Model)
-    {
+    <thead>
         <tr>
-            <th scope="row">@(i++)</th>
-            <td>@employee.Name</td>
-            <td>@employee.Address</td>
-            <td>@employee.Phone</td>
-            <td>@employee.Email</td>
-            <td>@employee.Gender</td>
-            <td>@employee.Dob</td>
-            <td>@employee.JoinDate</td>
-            <td>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Dob</th>
+            <th scope="col">JoinDate</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <th scope="row">@(i++)</th>
+                <td>@employee.Name</td>
+                <td>@employee.Address</td>
+                <td>@employee.Phone</td>
+                <td>@employee.Email</td>
+                <td>@employee.Gender</td>
+                <td>@employee.Designation?.Title</td>
+                <td>@employee.Dob.ToString("MMM dd, yyyy")</td>
+                <td>@employee.JoinDate.ToString("MMM dd, yyyy")</td>
+                <td>
                     <a href="/employee/edit/@employee.Id"><i class="bi bi-pencil text-warning"></i></a>
                     <a href="/employee/delete/@employee.Id"><i class="bi bi-trash text-danger"></i></a>
-            </td>
-        </tr>  
-    }
-      
-  </tbody>
+                </td>
+            </tr>
+        }
+
+    </tbody>
 </table>

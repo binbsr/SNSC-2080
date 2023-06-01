@@ -26,4 +26,11 @@ public class Employee
 
     [DisplayName("Designation")]
     public int DesignationId { get; set; }
+
+    public Department? Department { get; set; }
+    public int DepartmentId { get; set; }
 }
+
+// One-to-one
+// One-to-Many, Many-to-One
+// Many-to-Many

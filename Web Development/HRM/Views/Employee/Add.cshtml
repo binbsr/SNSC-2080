@@ -32,6 +32,12 @@ Tag Helpers
     </div>
 
     <div class="col-md-6">
+        <label asp-for=DepartmentId class="form-label"></label>
+        <select class="form-select" asp-for="DepartmentId" asp-items="@ViewData["DepartmentList"] as IEnumerable<SelectListItem>">
+        </select>
+    </div>
+
+    <div class="col-md-6">
         <label asp-for=DesignationId class="form-label"></label>
         <select class="form-select" asp-for="DesignationId" asp-items="@ViewData["DesignationList"] as IEnumerable<SelectListItem>">
         </select>

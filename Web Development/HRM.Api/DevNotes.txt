@@ -1,0 +1,31 @@
+﻿
+XML
+============================
+<employee>
+	<name>Pankaj</name>
+	<address>mnr</address>
+	<dob>1999/12/12</dob>
+</employee>
+<employee>
+	<name>Pankaj</name>
+	<address>mnr</address>
+	<dob>1999/12/12</dob>
+</employee>
+
+
+JSON
+===================
+{
+	"employees": [
+		{
+			"name": "pankaj",
+			"address": "mnr",
+			"dob": "1999/12/12"
+		},
+		{
+			"name": "pankaj",
+			"address": "mnr",
+			"dob": "1999/12/12"
+		}
+	]
+}

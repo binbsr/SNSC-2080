@@ -1,7 +1,7 @@
 ﻿using HRM.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace HRM.Data;
+namespace HRM.Api.Data;
 public class HRMContext: DbContext
 {
     public DbSet<Employee> Employees { get; set; }
@@ -11,6 +11,5 @@ public class HRMContext: DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=SNSC_HRM_2080;Integrated Security=True;");
-        //optionsBuilder.UseSqLite("Data Source=Something.db");
     }
 }

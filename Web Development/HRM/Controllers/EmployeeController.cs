@@ -23,6 +23,9 @@ public class EmployeeController : Controller
         var designationList = designations.Select(x => new SelectListItem { Text = x.Title, Value = x.Id.ToString() });
         ViewData["DesignationList"] = designationList;
 
+        var departments = db.Departments.ToList();
+        ViewData["DepartmentList"] = departments.Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() });
+        
         return View();
     }
 

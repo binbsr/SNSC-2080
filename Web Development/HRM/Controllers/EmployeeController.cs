@@ -67,6 +67,9 @@ public class EmployeeController : Controller
     [HttpPost]
     public IActionResult Delete(Employee employee)
     {
+        //id = id + ";drop table employee;";        
+        //var sql = "delete from employee where id="+id;
+
         // Save employee to db
         db.Employees.Remove(employee);
         db.SaveChanges();

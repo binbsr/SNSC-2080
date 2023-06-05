@@ -29,3 +29,14 @@ JSON
 		}
 	]
 }
+
+
+Authentication
+====================
+Login, Logout
+
+
+Authorization
+=======================
+Access Levels, Roles
+

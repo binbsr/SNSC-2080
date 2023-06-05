@@ -13,3 +13,19 @@ Data Access:
 > dotnet tool install dotnet-ef -g
 > dotnet ef migrations add CreateDb
 > dotnet ef database update
+
+
+- Deployment / Publish
+
+- DevOps: CI/CD Maintainance
+
+- Physical Server
+- Application/web Server (Apache [Java/PHP etc.], Nginx [ROR, python, .NET etc.], IIS [.NET])
+- Internet
+- Public IP / Domain name
+
+
+- Cloud (Azure, AWS, Google Cloud etc.)
+
+
+-- DEV/TST, INT, UAT, PROD
